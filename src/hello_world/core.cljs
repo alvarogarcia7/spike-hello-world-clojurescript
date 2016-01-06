@@ -1,9 +1,9 @@
 (ns hello-world.core
-  (:require [cljs.nodejs :as nodejs]))
+  (:require [clojure.browser.repl :as repl]))
 
-(nodejs/enable-util-print!)
+(defonce conn
+  (repl/connect "http://localhost:9000/repl")) 
 
-(defn -main [& args]
-  (println "Hello world!"))
+(enable-console-print!)
 
-(set! *main-cli-fn* -main)
+(println "Hello world!")
